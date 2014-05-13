@@ -69,10 +69,24 @@ def process (selection)
 			#show the student names
 			show_students
 		when "9"
+			save_students
 			exit    #exit the program 
 		else 
 			puts "I don't know what you meant, try again"
 	end
+end
+
+
+def save_students
+	#open file for writing
+	file = File.open("students.csv", "w")
+	#iterate over the array of students
+	@students.each do |student|
+		student_data = [student[:name], student[:cohort]]
+		csv_line = student_data.join(",")
+		file.puts csv_line
+	end
+	file.close
 end
 
 
