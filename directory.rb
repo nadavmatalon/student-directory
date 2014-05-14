@@ -45,13 +45,57 @@ end
 
 def print_students
 	puts ""
-	@students.each do |student|
-		name_arr = student[:name].split(//)
-		name_first_char = name_arr.first
-		if (name_first_char == "A")
-			puts "#{student[:name]} (#{student[:cohort]} cohort)"
-		end	
+
+	puts "Filter results by letter or click 'enter' to print all"
+
+	filter_letter = gets.chomp
+
+    if (("A".."Z") === filter_letter)
+
+    	print_option = 1
+
+    elsif (filter_letter == "")
+
+    	print_option = 2
+
+    else 
+
+    	print_option = 3
+    	
+    end
+
+
+    case print_option
+    
+    	when 1
+
+			@students.each do |student|
+
+
+				if (student[:name].start_with? filter_letter)
+
+					puts "#{student[:name]} (#{student[:cohort]} cohort)"
+
+				end
+
+			end
+
+
+    	when 2
+
+
+			@students.each do |student|
+
+				puts "#{student[:name]} (#{student[:cohort]} cohort)"
+
+			end
+
+
+    	when 3
+    	
+    		puts "we'll need to figure out"	
 	end
+
 end
 
 
@@ -66,7 +110,7 @@ def show_menu
 	print "\n\n"
 	print "Please select one of the following options:\n\n"
 	print "1. Add student names to the list\n\n"
-	print "2. Show list of all students\n\n"
+	print "2. Show list of students\n\n"
 	print "9. Exit program\n\n"
 end
 
