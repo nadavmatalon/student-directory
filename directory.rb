@@ -1,41 +1,51 @@
 
-#create an empty array
-@students = []
+
+@students = []		#array for student names
+
 
 def interactive_menu
 	loop do
-		#1. print the menu and ask the user what to do
-		show_menu
-		process(gets.chomp)  #read the input and save it into a variable
+		show_menu				#prints menu on screen
+		process(gets.chomp)  	#saves user input
 	end
 end
 
 
 def input_students
-	puts "Please enter the names of the students"
-	puts "To finish, just hit return twice"
+	#name input instructions:
+	puts "Please enter a student's name:"
+	puts "(click return to go back to main menu)"
+	puts ""
 
-	#get the first name
-	name = gets.chomp
+	#asks user to input name & stores input:
+	name = gets.chomp			#stores student name
 
-	#while the name is not empty, repeat this code
+	#while name is not empty:
 	while !name.empty? do
 		@students << {:name => name, :cohort => :May}
-		puts "Now we have #{@students.length} students"
+		puts ""
+		puts "(The list currently contains #{@students.length} students)"
+		puts ""
 
-		#get another name from the user
+		#asks user for a new name & stores new input unless empty:
+		puts "Please enter a student's name:"
+		puts "(click return to go back to main menu)"
+		puts ""
 		name = gets.chomp
 	end
 
-	@students
+	@students  		#returns array with student names
 end
+
 
 def print_header
 	puts "The students of my cohort at Makers Academy"
 	puts "-------------------------------------------"
 end
 
+
 def print_students
+	puts ""
 	@students.each do |student|
 		puts "#{student[:name]} (#{student[:cohort]} cohort)"
 	end
@@ -43,15 +53,20 @@ end
 
 
 def print_footer
-	puts "Overall, we have #{@students.length} great students"
+	puts ""
+	puts "Overall, there are #{@students.length} students on the list."
+	puts ""
 end
 
 
 def show_menu
-	puts "1. Input the students"
-	puts "2. Show the students"
-	puts "9. Exit" # 9 because we'll be adding more items
+	puts ""
+	print "Please select one of the following options:\n\n"
+	puts "1. Add student names to the list"
+	puts "2. Show list of all students"
+	puts "9. Exit program\n"
 end
+
 
 def show_students
 	print_header
@@ -72,7 +87,8 @@ def process (selection)
 			save_students
 			exit    #exit the program 
 		else 
-			puts "I don't know what you meant, try again"
+			puts "Sorry, incorrect selection - please try again."
+			puts ""
 	end
 end
 
