@@ -2,7 +2,6 @@
 
 @students = []		#array for student names
 
-
 def interactive_menu
 	loop do
 		show_menu				#prints menu on screen
@@ -47,7 +46,11 @@ end
 def print_students
 	puts ""
 	@students.each do |student|
-		puts "#{student[:name]} (#{student[:cohort]} cohort)"
+		name_arr = student[:name].split(//)
+		name_first_char = name_arr.first
+		if (name_first_char == "A")
+			puts "#{student[:name]} (#{student[:cohort]} cohort)"
+		end	
 	end
 end
 
@@ -60,11 +63,11 @@ end
 
 
 def show_menu
-	puts ""
+	print "\n\n"
 	print "Please select one of the following options:\n\n"
-	puts "1. Add student names to the list"
-	puts "2. Show list of all students"
-	puts "9. Exit program\n"
+	print "1. Add student names to the list\n\n"
+	print "2. Show list of all students\n\n"
+	print "9. Exit program\n\n"
 end
 
 
