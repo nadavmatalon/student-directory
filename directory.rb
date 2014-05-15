@@ -19,6 +19,8 @@ def input_students
 	#asks user to input name & stores input:
 	name = gets.chomp			#stores student name
 
+ 	name.capitalize!
+
 	#while name is not empty:
 	while !name.empty? do
 		@students << {:name => name, :cohort => :May}
@@ -46,7 +48,7 @@ end
 def print_students
 	puts ""
 
-	puts "Filter results by letter or click 'enter' to print all"
+	puts "Please enter letter to filter results or click 'enter' to print all"
 
 	filter_letter = gets.chomp
 
@@ -54,13 +56,17 @@ def print_students
 
     	print_option = 1
 
-    elsif (filter_letter == "")
+    elsif (("a"..."z") === filter_letter)
 
     	print_option = 2
 
-    else 
+    elsif (filter_letter == "")
 
     	print_option = 3
+
+    else 
+
+    	print_option = 4
     	
     end
 
@@ -80,8 +86,23 @@ def print_students
 
 			end
 
+		when 2 
 
-    	when 2
+			filter_letter.capitalize!
+
+			@students.each do |student|
+
+
+				if (student[:name].start_with? filter_letter)
+
+					puts "#{student[:name]} (#{student[:cohort]} cohort)"
+
+				end
+
+			end			
+
+
+    	when 3
 
 
 			@students.each do |student|
@@ -91,9 +112,12 @@ def print_students
 			end
 
 
-    	when 3
+    	when 4
     	
-    		puts "we'll need to figure out"	
+    		puts ""
+    		puts "Sorry, incorrect selection - please select again"
+    		puts ""
+    		print_students	
 	end
 
 end
