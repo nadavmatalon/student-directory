@@ -12,9 +12,8 @@ end
 
 def input_students
 	#name input instructions:
-	puts "Please enter a student's name:"
-	puts "(click return to go back to main menu)"
-	puts ""
+	print "Please enter a student's name:\n\n"
+	print "(click return to go back to main menu)\n\n"
 
 	#asks user to input name & stores input:
 	name = gets.chomp			#stores student name
@@ -24,15 +23,14 @@ def input_students
 	#while name is not empty:
 	while !name.empty? do
 		@students << {:name => name, :cohort => :May}
-		puts ""
-		puts "(The list currently contains #{@students.length} students)"
-		puts ""
+		print "\n\n"
+		print "(The list currently contains #{@students.length} students)\n\n"
 
 		#asks user for a new name & stores new input unless empty:
-		puts "Please enter a student's name:"
-		puts "(click return to go back to main menu)"
-		puts ""
+		print "Please enter a student's name:\n\n"
+		print "(click return to go back to main menu)\n\n"
 		name = gets.chomp
+		name.capitalize!
 	end
 
 	@students  		#returns array with student names
@@ -40,15 +38,16 @@ end
 
 
 def print_header
-	puts "The students of my cohort at Makers Academy"
-	puts "-------------------------------------------"
+	print "\n\n"
+	print "The students of my cohort at Makers Academy\n\n"
+	print "-------------------------------------------\n\n"
 end
 
 
 def print_students
-	puts ""
 
-	puts "Please enter letter to filter results or click 'enter' to print all"
+	print "\n\n"
+	print "Please enter letter to filter results or click 'enter' to print all\n\n"
 
 	filter_letter = gets.chomp
 
@@ -80,7 +79,7 @@ def print_students
 
 				if (student[:name].start_with? filter_letter)
 
-					puts "#{student[:name]} (#{student[:cohort]} cohort)"
+					print "#{student[:name]} (#{student[:cohort]} cohort)\n\n"
 
 				end
 
@@ -90,12 +89,11 @@ def print_students
 
 			filter_letter.capitalize!
 
-			@students.each do |student|
-
+			@students.each.with_index(1) do |student, index|
 
 				if (student[:name].start_with? filter_letter)
 
-					puts "#{student[:name]} (#{student[:cohort]} cohort)"
+					print "#{index}. #{student[:name]} (#{student[:cohort]} cohort)\n\n"
 
 				end
 
@@ -105,18 +103,17 @@ def print_students
     	when 3
 
 
-			@students.each do |student|
+			@students.each.with_index(1) do |student, index|
 
-				puts "#{student[:name]} (#{student[:cohort]} cohort)"
+				print "#{index}. #{student[:name]} (#{student[:cohort]} cohort)\n\n"
 
 			end
 
 
     	when 4
     	
-    		puts ""
-    		puts "Sorry, incorrect selection - please select again"
-    		puts ""
+    		print "\n\n"
+    		print "Sorry, incorrect selection - please select again.\n\n"
     		print_students	
 	end
 
@@ -124,9 +121,8 @@ end
 
 
 def print_footer
-	puts ""
-	puts "Overall, there are #{@students.length} students on the list."
-	puts ""
+	print "\n\n"
+	print "Overall, there are #{@students.length} students on the list.\n\n"
 end
 
 
@@ -158,8 +154,7 @@ def process (selection)
 			save_students
 			exit    #exit the program 
 		else 
-			puts "Sorry, incorrect selection - please try again."
-			puts ""
+			print "Sorry, incorrect selection - please try again.\n\n"
 	end
 end
 
