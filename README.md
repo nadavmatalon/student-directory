@@ -103,3 +103,11 @@ Selecting this menu-option will end the script and return the user to normal ter
 Before exiting the script, the user is asked if s/he would like to save the current list to a file (see: "load file" & "save file" options above).
 
 As before, the script is configured to accept various affirmative/negative answers ("Yes", "yes", "YES", "Y", "y" and their negative equivalents).
+
+
+##Notes
+
+The original script (directoty.rb) was re-written from scratch and re-named "directory_2.rb".
+
+This was done to improve the structure of the code by making it more object-oriented (in contrast with the relatively linear structure of the original).
+
