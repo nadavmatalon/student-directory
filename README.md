@@ -107,7 +107,7 @@ As before, the script is configured to accept various affirmative/negative answe
 
 ##Notes
 
-The original script (directoty.rb) was re-written from scratch and re-named "directory_2.rb".
+The original script (directory.rb) was re-written from scratch and re-named "directory_2.rb".
 
 This was done to improve the structure of the code by making it more object-oriented (in contrast with the relatively linear structure of the original).
 
