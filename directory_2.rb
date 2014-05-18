@@ -50,16 +50,20 @@ def add_student_names
 		@students << {:name => name, :cohort => :May}
 		#sorts list by student name
 		@students.sort_by! { |student| student[:name] }
+		#saves updated list of students
+		save_student_list
 		#prints overall number of students
 		print "\n(The list currently contains #{@students.length} students)\n"
 		#asks user for a new name & stores new input unless empty:
 		print "\nPlease enter a new student's name:\n"
-		print "(click 'enter' to return to main menu)\n\n"
+		print "(click 'enter' to return to main menu)\n"
 		name = gets.chomp
 		#capitalizes first letter of the name (if not already capitalized):
 		name.capitalize!
 		#sorts list by student name
 		@students.sort_by! { |student| student[:name] }
+		#saves updated list of students
+		save_student_list
 	end
 end
 
