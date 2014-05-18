@@ -3,9 +3,9 @@
 
 ##Application Description
 
-The sudent directory is a ruby script for managing the list of students enrolled in the "May 2014" course at Makers Academy.
+The sudent directory is a ruby script for managing the list of students enrolled in different courses (aka "cohorts") at Makers Academy.
 
-The purpose of this script is to enable users to create a list of the students enrolled to the course, input data about the sutdents (not yet implemented), as well as load & save the list to an indepent csv file.
+The purpose of this script is to enable users to create a list of enrolled students, input various details about them (first name, last name, cohort month & cohort year), as well as load & save the list in an indepent csv file.
 
 
 ##General Instructions
@@ -41,17 +41,19 @@ Note that entering anything other than an acceptable option-number (currently: "
 
 ###1. Add student names to the list
 
-Currently, the user can only enter the first name of students.
+When selecting this menu-option, the user is first asked to input the first name of the student, followed by their last name, cohort month, and cohort year.
 
-At present all students are automatically assigned to the "May" cohort.
+When first or last names are entered without an initial capital letter, the initial letter of the name will be capitalized automatically.
 
-Each new student name needs to be entered individually followed by clicking the "enter" key.
+The names on the list are automatically indexed and sorted alphabetically according to the student's first name (this operation takes place after each new name entry).
 
-When names are entered without an initial capital letter, the initial letter of the name will be capitalized automatically.
+Inputting either an illegitimate month name or year will generate an "incorrect input" message followed by a prompt to the user to try again.
 
-The names on the list are automatically indexed and sorted alphabetically with each new name entry.
+Note that uncapitalized month names are acceptable as input as they are capitalized automatically by the script.
 
-To go back to the main menu, the user simply needs to click "enter" without entering a new name.
+If the user simply clicks "enter" without giving input regarding the student's Cohort Month or Cohort Year - they will be set to the current month/year by default.
+
+To go back to the main menu, the user simply needs to click "enter" without entering a new name when prompted to add a new First Name for a student.
 
 
 ###2. Show list of students
@@ -85,9 +87,11 @@ In each of the above presentation modes the student list includes:
 
 ###3. Load student list
 
-Users can load an existing list of students from a file (filename: “students.csv”).
+Users can manually load an existing list of students from a file (filename: “students.csv”).
 
-The file will be located in the same directory as the ruby script only if the student list was previously saved (see next menu item).
+The file is located in the same directory as the ruby script (see next menu item).
+
+IMPORTANT: loading an existing list will overide any changes that were made in the list during that particular session!  
 
 
 ###4. Save student list
