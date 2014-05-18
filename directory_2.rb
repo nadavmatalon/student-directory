@@ -11,10 +11,10 @@ end
 def menu_selection
 
 	print "\nPlease select one of the following options:\n"
-	print "1. Add student names to list\n"
+	print "1. Add a new name to student list\n"
 	print "2. Show list of students\n"
-	print "3. Load student list\n"
-	print "4. Save student list\n"
+	print "3. Load student list from file\n"
+	print "4. Save student list to file\n"
 	print "5. Clear student list\n"
 	print "9. Exit program\n\n"
 	selection = gets.chomp
@@ -44,7 +44,7 @@ end
 
 def add_student_names
 	#name input instructions:
-	print "Please enter a new student's name:\n"
+	print "Please enter a new name:\n"
 	print "(click return to go back to main menu)\n\n"
 
 	#asks user  for input & stores input:
@@ -163,8 +163,8 @@ end
 
 def print_list_header
 
-	print "\n\nThe students of my cohort at Makers Academy\n"
-	print "-------------------------------------------\n"
+	print "\n\nStudent List (May 2014) at Makers Academy\n"
+	print "-----------------------------------------\n"
 end
 
 
@@ -207,13 +207,20 @@ end
 
 def load_student_list
 
-	file = File.open("students.csv", "r")
-	file.readlines.each do |line|
-		name, cohort = line.chomp.split(',')
-		@students << {:name => name, :cohort => cohort.to_sym}
-  	end
-	file.close
-	print "\nCurrent list loaded from file.\n"
+	if (File.file?("students.csv"))
+
+		file = File.open("students.csv", "r")
+		file.readlines.each do |line|
+			name, cohort = line.chomp.split(',')
+			@students << {:name => name, :cohort => cohort.to_sym}
+  		end
+		file.close
+		print "\nCurrent list loaded from file.\n"
+	else
+		file = File.open("students.csv", "w")
+		file.close
+		print "\nStudent list file not found - new file created.\n"
+	end
 end
 
 def clear_student_list
@@ -230,8 +237,6 @@ def clear_student_list
 		print "Sorry, incorrect input - please try again.\n"
 		clear_student_list
 	end
-
-
 end	
 
 program_startup
