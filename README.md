@@ -12,7 +12,13 @@ The purpose of this script is to enable users to create a list of the students e
 
 The script runs in terminal (ruby must be installed).
 
-When first running the script, the user is presented with a main menu containing the following options:
+When first running the script, the list of students will automatically be loaded from a csv file (see "Save student List" & "Load student list" below for more details). 
+
+If the said file doesn't already exist, the script will create it automatically (the file is located in the same folder as the script) 
+
+Relevant prompts are given regarding whether the list was loaded from file or if a new file was created.
+
+Subsequently, the user is presented with a main menu containing the following options:
 
 1. Add student names to the list
 
@@ -37,11 +43,13 @@ Note that entering anything other than an acceptable option-number (currently: "
 
 Currently, the user can only enter the first name of students.
 
-At present all students are automatically assigned to the "May 2014" cohort.
+At present all students are automatically assigned to the "May" cohort.
 
 Each new student name needs to be entered individually followed by clicking the "enter" key.
 
 When names are entered without an initial capital letter, the initial letter of the name will be capitalized automatically.
+
+The names on the list are automatically indexed and sorted alphabetically with each new name entry.
 
 To go back to the main menu, the user simply needs to click "enter" without entering a new name.
 
@@ -68,7 +76,11 @@ Also note that if the user enters a lower-case letter, the letter will automatic
 
  If the user enters anything other than an integer, they are asked to try again.
 
-In each of the above presentation modes of the student list is includes a header, an indexed list of student names, and a footer that quotes the overall number of students on the list regardless of whether the list was filtered or not.
+In each of the above presentation modes the student list includes:
+
+- a header
+- an indexed list of student names (sorted automatically in alphabetical order)
+- a footer that quotes the overall number of students on the list (regardless of whether the list was filtered or not).
 
 
 ###3. Load student list
