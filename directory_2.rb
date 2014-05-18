@@ -43,30 +43,38 @@ end
 
 
 def add_student_names
-	#name input instructions:
-	print "Please enter a new name:\n"
+	#first name input instructions:
+	print "Please enter First Name of new student:\n"
 	print "(click return to go back to main menu)\n\n"
-
 	#asks user  for input & stores input:
-	name = gets.chomp			
-	#capitalizes first letter of the name (if not already capitalized):
- 	name.capitalize!
-	#while name is not empty:
-	while !name.empty? do
+	first_name = gets.chomp
+	#while first name is not empty:
+	while !first_name.empty? do
+		#capitalizes first letter of the name (if not already capitalized):
+ 		first_name.capitalize!
+
+		print "\nPlease enter Last Name of new student:\n\n"
+		last_name = gets.chomp
+		last_name.capitalize!
+
+		cohort_month = get_cohort_month
+
+		cohort_year = get_cohort_year
+
 		#inserts new student name into list
-		@students << {:name => name, :cohort => :May}
+		@students << {:first_name => first_name, :last_name => last_name, :cohort_month => cohort_month, :cohort_year => cohort_year}
 		#sorts list by student name
-		@students.sort_by! { |student| student[:name] }
+		@students.sort_by! { |student| student[:first_name] }
 		#prints overall number of students
 		print "\n(The list currently contains #{@students.length} students)\n"
 		#asks user for a new name & stores new input unless empty:
 		print "\nPlease enter a new student's name:\n"
 		print "(click 'enter' to return to main menu)\n"
-		name = gets.chomp
+		first_name = gets.chomp
 		#capitalizes first letter of the name (if not already capitalized):
-		name.capitalize!
+		# first_name.capitalize!
 		#sorts list by student name
-		@students.sort_by! { |student| student[:name] }
+		# @students.sort_by! { |student| student[:first_name] }
 	end
 end
 
@@ -104,7 +112,7 @@ def print_entire_list
 
 	 @students.each.with_index(1) do |student, index|
 
-		print "#{index}. #{student[:name]} (#{student[:cohort]} cohort)\n\n"
+		print "#{index}. #{student[:first_name]} #{student[:last_name]} (#{student[:cohort_month]} #{student[:cohort_year]})\n\n"
 	end
 
 	print_list_footer
@@ -196,7 +204,7 @@ def save_student_list
 	file = File.open("students.csv", "w")
 	#iterate over the array of students
 	@students.each do |student|
-		student_data = [student[:name], student[:cohort]]
+		student_data = [student[:first_name], student[:last_name], student[:cohort_month], student[:cohort_year]]
 		csv_line = student_data.join(",")
 		file.puts csv_line
 	end
@@ -211,8 +219,8 @@ def load_student_list
 
 		file = File.open("students.csv", "r")
 		file.readlines.each do |line|
-			name, cohort = line.chomp.split(',')
-			@students << {:name => name, :cohort => cohort.to_sym}
+			first_name, last_name, cohort_month, cohort_year = line.chomp.split(',')
+			@students << {:first_name => first_name, :last_name => last_name, :cohort_month => cohort_month, :cohort_year => cohort_year}
   		end
 		file.close
 		print "\nCurrent list loaded from file.\n"
@@ -238,6 +246,59 @@ def clear_student_list
 		clear_student_list
 	end
 end	
+
+def get_cohort_month
+
+	print "\nPlease enter Cohort Month of new student:\n"
+	print "(click 'enter' for current month)\n\n"
+	month_input = gets.chomp
+	month_input.capitalize!
+	if month_input.empty?
+		return Time.now.strftime("%B")
+	elsif (is_month?(month_input))
+		return month_input
+	else
+		print "\nSorry, incorrect input - please try again.\n"
+		get_cohort_month
+	end
+end
+
+def get_cohort_year
+
+	print "\nPlease enter Cohort Year of new student:\n"
+	print "(click 'enter' for current year)\n\n"
+	year_input = gets.chomp
+	if year_input.empty?
+		return Time.now.strftime("%Y")
+	elsif (is_year?(year_input))
+		return year_input
+	else
+		print "\nSorry, incorrect input - please try again.\n"
+		get_cohort_year
+	end			
+end
+
+def is_month? (input_month)
+
+	if ((input_month == "January") || (input_month == "February") || (input_month == "March") ||\
+		(input_month == "April") || (input_month == "May") || (input_month == "June") || \
+		(input_month == "July") || (input_month == "August") || (input_month == "September") ||\
+		(input_month == "October") || (input_month == "November") || (input_month == "December"))
+		return true
+	else
+		return false
+	end
+end
+
+def is_year? (input_year)
+
+   	if (("2000".."2100") === input_year)
+   		return true
+   	else
+   		return false
+   	end
+end
+
 
 program_startup
 
