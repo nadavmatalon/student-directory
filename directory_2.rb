@@ -2,7 +2,7 @@
 @students = []		#array for storing student names
 
 def menu_selection
-	
+
 	print "\nPlease select one of the following options:\n"
 	print "1. Add student names to list\n"
 	print "2. Show list of students\n"
@@ -42,17 +42,24 @@ def add_student_names
 
 	#asks user  for input & stores input:
 	name = gets.chomp			
-	#capitalizes first letter of name (if not already capitalized):
+	#capitalizes first letter of the name (if not already capitalized):
  	name.capitalize!
 	#while name is not empty:
 	while !name.empty? do
+		#inserts new student name into list
 		@students << {:name => name, :cohort => :May}
+		#sorts list by student name
+		@students.sort_by! { |student| student[:name] }
+		#prints overall number of students
 		print "\n(The list currently contains #{@students.length} students)\n"
 		#asks user for a new name & stores new input unless empty:
 		print "\nPlease enter a new student's name:\n"
 		print "(click 'enter' to return to main menu)\n\n"
 		name = gets.chomp
+		#capitalizes first letter of the name (if not already capitalized):
 		name.capitalize!
+		#sorts list by student name
+		@students.sort_by! { |student| student[:name] }
 	end
 end
 
@@ -221,4 +228,5 @@ def clear_student_list
 end	
 
 menu_selection
+
 
