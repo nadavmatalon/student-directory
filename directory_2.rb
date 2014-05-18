@@ -1,6 +1,13 @@
 
 @students = []		#array for storing student names
 
+def program_startup
+
+	print "\nSTUDENT DIRECTORY\n"
+	load_student_list
+	menu_selection
+end
+
 def menu_selection
 
 	print "\nPlease select one of the following options:\n"
@@ -50,8 +57,6 @@ def add_student_names
 		@students << {:name => name, :cohort => :May}
 		#sorts list by student name
 		@students.sort_by! { |student| student[:name] }
-		#saves updated list of students
-		save_student_list
 		#prints overall number of students
 		print "\n(The list currently contains #{@students.length} students)\n"
 		#asks user for a new name & stores new input unless empty:
@@ -62,8 +67,6 @@ def add_student_names
 		name.capitalize!
 		#sorts list by student name
 		@students.sort_by! { |student| student[:name] }
-		#saves updated list of students
-		save_student_list
 	end
 end
 
@@ -210,7 +213,7 @@ def load_student_list
 		@students << {:name => name, :cohort => cohort.to_sym}
   	end
 	file.close
-	print "\nCurrent list loaded from file.\n\n"
+	print "\nCurrent list loaded from file.\n"
 end
 
 def clear_student_list
@@ -231,6 +234,7 @@ def clear_student_list
 
 end	
 
-menu_selection
+program_startup
+
 
 
