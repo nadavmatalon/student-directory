@@ -1,5 +1,4 @@
 
-
 @students = []		#array for student names
 
 def interactive_menu
@@ -14,12 +13,9 @@ def input_students
 	#name input instructions:
 	print "Please enter a student's name:\n\n"
 	print "(click return to go back to main menu)\n\n"
-
 	#asks user to input name & stores input:
 	name = gets.chomp			#stores student name
-
  	name.capitalize!
-
 	#while name is not empty:
 	while !name.empty? do
 		@students << {:name => name, :cohort => :May}
