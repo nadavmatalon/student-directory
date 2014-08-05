@@ -15,7 +15,7 @@
 
 The program runs in terminal (ruby must be installed).
 
-<p>To run in terminal:</p><br/>
+<p>To run in terminal:</p>
 <p>$ irb</p>
 <p>$ require './student-directory.rb'</p>
 <p>$ program_startup</p>
