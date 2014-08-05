@@ -3,23 +3,22 @@
 
 ##General Description
 
-The Sudent Directory is a ruby app for managing the list of students enrolled in different courses (aka "cohorts") at Makers Academy.
+<p>The Sudent Directory is a ruby app for managing the list of students enrolled in different courses (aka "cohorts") at Makers Academy.</p>
 
-The purpose of this script is to enable users to create a list of enrolled students, input various details about them (first name, last name, cohort month & cohort year), as well as load & save the list in an indepent csv file.
+<p>The purpose of this script is to enable users to create a list of enrolled students, input various details about them (first name, last name, cohort month & cohort year), as well as load & save the list in an indepent csv file.</p>
 
-<strong>Update: </strong>
-	<p>This app was re-written from scratch using TDD during week 2 of the course</p>
-	<p>(see: https://github.com/nadavmatalon/student-directory-tdd)</p>
+<p><strong>Update: </strong>This app was re-written from scratch using TDD during week 2 of the course</p>
+<p>(see: https://github.com/nadavmatalon/student-directory-tdd)</p>
 
 
 ##How to Run
 
 The program runs in terminal (ruby must be installed).
 
-To run in terminal: 
- 	$ irb
- 	$ require './student-directory.rb'
-	$ program_startup
+<p>To run in terminal:</p><br/>
+<p>$ irb</p>
+<p>$ require './student-directory.rb'</p>
+<p>$ program_startup</p>
 
 
 ##Functional Description
