@@ -1,18 +1,30 @@
 
 #Student Directory
 
-##Application Description
+##General Description
 
-The sudent directory is a ruby script for managing the list of students enrolled in different courses (aka "cohorts") at Makers Academy.
+The Sudent Directory is a ruby app for managing the list of students enrolled in different courses (aka "cohorts") at Makers Academy.
 
 The purpose of this script is to enable users to create a list of enrolled students, input various details about them (first name, last name, cohort month & cohort year), as well as load & save the list in an indepent csv file.
 
+<strong>Update: </strong>
+	<p>This app was re-written from scratch using TDD during week 2 of the course</p>
+	<p>(see: https://github.com/nadavmatalon/student-directory-tdd)</p>
 
-##General Instructions
 
-The script runs in terminal (ruby must be installed).
+##How to Run
 
-When first running the script, the list of students will automatically be loaded from a csv file (see "Save student List" & "Load student list" below for more details). 
+The program runs in terminal (ruby must be installed).
+
+To run in terminal: 
+ 	$ irb
+ 	$ require './student-directory.rb'
+	$ program_startup
+
+
+##Functional Description
+
+When first running the program, the list of students will automatically be loaded from a csv file (see "Save student List" & "Load student list" below for more details). 
 
 If the said file doesn't already exist, the script will create it automatically (the file is located in the same folder as the script) 
 
@@ -37,7 +49,7 @@ To select one of these options, the user needs to enter the relevant option-numb
 Note that entering anything other than an acceptable option-number (currently: "1", "2", "3", "4", "5", "9") will result in a prompt to the user to try again followed by re-presentation of the main menu.
 
 
-##Further Explanation on each Main Menu Item
+##Explanation on each Main Menu Item
 
 ###1. Add student names to the list
 
@@ -119,11 +131,3 @@ Selecting this menu-option will end the script and return the user to normal ter
 Before exiting the script, the user is asked if s/he would like to save the current list to a file (see: "load file" & "save file" options above).
 
 As before, the script is configured to accept various affirmative/negative answers ("Yes", "yes", "YES", "Y", "y" and their negative equivalents).
-
-
-##Notes
-
-The original script (directory.rb) was re-written from scratch and re-named "directory_2.rb".
-
-This was done to improve the structure of the code by making it more object-oriented (in contrast with the relatively linear structure of the original).
-

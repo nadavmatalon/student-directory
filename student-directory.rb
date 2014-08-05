@@ -253,9 +253,3 @@ def is_year? (input_year)
    		return false
    	end
 end
-
-
-program_startup
-
-
-
