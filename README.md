@@ -165,6 +165,8 @@ As before, the script is configured to accept various affirmative/negative answe
 
 ###How to Run
 
+Clone the repo to a local folder and run:
+
 ```
 $> cd student-directory
 $> irb
