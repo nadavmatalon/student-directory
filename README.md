@@ -10,7 +10,7 @@
 
 ##General Description
 
-__Sudent Directory__ is a simple [Ruby](https://www.ruby-lang.org/en/) app written during 
+__Student Directory__ is a simple [Ruby](https://www.ruby-lang.org/en/) app written during 
 the first week of the course at [Makers Academy](http://www.makersacademy.com/).
 
 The purpose of the app is to manage the list of students enrolled in different courses 
